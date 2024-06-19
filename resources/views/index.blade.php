@@ -24,17 +24,19 @@ background: linear-gradient(90deg, rgba(216,231,231,1) 0%, rgba(61,163,236,1) 32
             </li>
             @foreach ($products as $product)
 
-                <li class="row bg-light-subtle pt-2" style="opacity: .75;">
-                    <p class="col">{{$product->name}}</p>
-                    <p class="col">{{$product->description}}</p>
-                    <p class="col">{{$product->prix}}</p>
-                </li>
-                <a href="{{route('updateTask', $product->id)}}" class="btn btn-dark">MAJ</a>
-                <a href="{{route('deleteTask', $product->id)}}" class="btn btn-dark">DEL</a>
+                <a>
+                    <li class="row bg-light-subtle pt-2" style="opacity: .75;">
+                        <p class="col">{{$product->name}}</p>
+                        <p class="col">{{$product->description}}</p>
+                        <p class="col">{{$product->price}}</p>
+                    </li>
+                </a>
+                <a href="{{route('updateProduct', $product->id)}}" class="btn btn-dark">MAJ</a>
+                <a href="{{route('delProduct', $product->id)}}" class="btn btn-dark">DEL</a>
             @endforeach
-
-
         </ul>
+        <a href="{{route('addProduct')}}" class="btn btn-dark">Ajouter</a>
+
     </main>
     <footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
