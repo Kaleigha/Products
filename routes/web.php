@@ -9,6 +9,8 @@ Route::get('/add', [ProductController::class, 'addProduct'])->name('addProduct')
 
 Route::post('/add/confirm', [ProductController::class, 'store'])->name('addProductComfirm');
 
-Route::get('/upd', [ProductController::class, 'updateProduct'])->name('updateProduct');
+Route::get('/upd/{id}', [ProductController::class, 'updateProduct'])->name('updateProduct');
+
+Route::post('/upd/confirm/{id}', [ProductController::class, 'updateProductConfirm'])->name('updateProductConfirm');
 
 Route::get('/del/{id}', [ProductController::class, 'delete'])->name('delProduct');

@@ -28,7 +28,7 @@ background: linear-gradient(90deg, rgba(216,231,231,1) 0%, rgba(61,163,236,1) 32
                     <li class="row bg-light-subtle pt-2" style="opacity: .75;">
                         <p class="col">{{$product->name}}</p>
                         <p class="col">{{$product->description}}</p>
-                        <p class="col">{{$product->price}}</p>
+                        <p class="col">{{$product->price}} €</p>
                     </li>
                 </a>
                 <a href="{{route('updateProduct', $product->id)}}" class="btn btn-dark">MAJ</a>

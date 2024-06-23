@@ -29,6 +29,24 @@ class ProductController extends Controller
         return redirect('/add');
     }
 
+    public function updateProduct($id)
+    {
+        $product = Product::findOrFail($id);
+        // dd($product);
+        return view('fonctions.updateProduct', ['product' => $product]);
+
+    }
+
+    public function updateProductConfirm(Request $request, $id)
+    {
+        $post = Product::findOrFail($id);
+        $post->update([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'price' => $request->input('price')
+        ]);
+        return redirect('/');
+    }
     public function delete($id)
     {
         $product = Product::findOrFail($id);
