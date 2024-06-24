@@ -26,6 +26,6 @@ background: linear-gradient(90deg, rgba(216,231,231,1) 0%, rgba(61,163,236,1) 32
     </form>
 </div>
 <div>
-    <a href="{{route('index')}}" class="btn btn-dark">Retour</a>
+    <a href="{{route('dashboardListe')}}" class="btn btn-dark">Retour</a>
 </div>
 @endsection

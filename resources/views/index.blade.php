@@ -12,23 +12,12 @@
 <body>
 
     <header class="text-center">
-        <h1>Liste des produits</h1>
+        <h1 class="mb-3 mt-3">Liste des produits</h1>
         @guest
             <a class="btn btn-dark border border-white" href="{{route('login')}}">Connexion</a>
             <a class="btn btn-dark border border-white" href="{{route('register')}}">Inscription</a>
         @endguest
-        @auth
-            <a class="btn btn-dark border border-white" href="{{route('dashboard')}}">Dashboard</a>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
 
-                <a class="btn btn-dark border border-white" href="{{route('logout')}}" onclick="event.preventDefault();
-                                                                        this.closest('form').submit();">
-                    {{ __('Log Out') }}</a>
-
-            </form>
-
-        @endauth
     </header>
     <main>
         <ul class="container text-center bg-light rounded pt-5 pb-5 shadow-lg">
@@ -39,23 +28,19 @@ background: linear-gradient(90deg, rgba(216,231,231,1) 0%, rgba(61,163,236,1) 32
                 <p class="col">prix</p>
             </li>
             @foreach ($products as $product)
+                <li class="row bg-light-subtle pt-2" style="opacity: .75;">
+                    <p class="col">{{$product->name}}</p>
+                    <p class="col">{{$product->description}}</p>
+                    <p class="col">{{$product->price}} €</p>
+                </li>
 
-                <a>
-                    <li class="row bg-light-subtle pt-2" style="opacity: .75;">
-                        <p class="col">{{$product->name}}</p>
-                        <p class="col">{{$product->description}}</p>
-                        <p class="col">{{$product->price}} €</p>
-                    </li>
-                </a>
                 @auth
                     <a href="{{route('updateProduct', $product->id)}}" class="btn btn-dark">MAJ</a>
                     <a href="{{route('delProduct', $product->id)}}" class="btn btn-dark">DEL</a>
                 @endauth
             @endforeach
         </ul>
-        @auth
-            <a href="{{route('addProduct')}}" class="btn btn-dark">Ajouter</a>
-        @endauth
+
     </main>
     <footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

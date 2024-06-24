@@ -31,7 +31,7 @@ class ProductController extends Controller
             'description' => $request->input('description'),
             'price' => $request->input('price')
         ]);
-        return redirect('/dashboardAdd');
+        return redirect('/dashboard/add');
     }
 
     public function updateProduct($id)
@@ -50,12 +50,12 @@ class ProductController extends Controller
             'description' => $request->input('description'),
             'price' => $request->input('price')
         ]);
-        return redirect('/');
+        return redirect('/dashboard/liste');
     }
     public function delete($id)
     {
         $product = Product::findOrFail($id);
         $product->delete();
-        return redirect('/');
+        return redirect('/dashboard/liste');
     }
 }
