@@ -13,6 +13,20 @@
 
     <header class="text-center">
         <h1>Liste des produits</h1>
+        <a class="btn btn-dark border border-white" href="{{route('login')}}">Connexion</a>
+        <a class="btn btn-dark border border-white" href="{{route('register')}}">Nouveau</a>
+        @auth
+            <a class="btn btn-dark border border-white" href="{{route('dashboard')}}">Dashboard</a>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <a class="btn btn-dark border border-white" href="{{route('logout')}}" onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                    {{ __('Log Out') }}>Deconnexion</a>
+
+            </form>
+
+        @endauth
     </header>
     <main>
         <ul class="container text-center bg-light rounded pt-5 pb-5 shadow-lg">
