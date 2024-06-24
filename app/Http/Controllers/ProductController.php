@@ -13,10 +13,15 @@ class ProductController extends Controller
         $products = Product::all();
         return view('index', compact('products'));
     }
+    public function dashboardLibre()
+    {
+        $products = Product::all();
+        return view('dashboardListe', compact('products'));
+    }
 
     public function addProduct()
     {
-        return view('fonctions.addProduct');
+        return view('dashboardAdd');
     }
 
     public function store(Request $request)
@@ -26,7 +31,7 @@ class ProductController extends Controller
             'description' => $request->input('description'),
             'price' => $request->input('price')
         ]);
-        return redirect('/add');
+        return redirect('/dashboardAdd');
     }
 
     public function updateProduct($id)
