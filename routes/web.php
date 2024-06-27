@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'index'])->name('index');
 
+Route::get('/detail{id}', [ProductController::class, 'details'])->name('details');
+
 Route::get('/dashboard/add', [ProductController::class, 'addProduct'])->middleware('auth')->name('addProduct');
 
 Route::post('/dashboard/add/confirm', [ProductController::class, 'store'])->name('addProductComfirm');

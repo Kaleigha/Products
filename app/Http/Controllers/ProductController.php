@@ -11,7 +11,13 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('index', compact('products'));
+        return view('welcome', compact('products'));
+    }
+
+    public function details($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('detail', ['product' => $product]);
     }
     public function dashboardLibre()
     {
